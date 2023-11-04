@@ -2,10 +2,16 @@ import React from "react";
 import "./Sidebar.css";
 
 export default function Sidebar() {
+  function handleClick(e) {
+    console.log("Clicked Title", e);
+  }
+
   return (
-    <div class="sidebar h-full py-5 d-flex flex-column justify-content-between">
+    <div class="sidebar h-full py-5 d-flex flex-column justify-content-between g-0">
       <div class="row mb-5 branding-container">
-        <h5 class="text-center brand-name">Medico Sales</h5>
+        <h5 class="text-center brand-name" onClick={(e) => handleClick(e)}>
+          Medico Sales
+        </h5>
       </div>
       <div class="row nav-links">
         <ul>

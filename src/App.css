@@ -42,3 +42,18 @@
   height: 50px;
   background-color: aquamarine;
 }
+
+.options {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.itenary-button {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  background-color: lightcoral;
+}

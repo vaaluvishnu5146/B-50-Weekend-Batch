@@ -1,3 +1,4 @@
+import { isFor } from "@babel/types";
 import React from "react";
 
 const INITIAL_ITENARY_STATE = {
@@ -6,77 +7,48 @@ const INITIAL_ITENARY_STATE = {
   placeImage: "",
 };
 
-const INITIAL_COMPONENT_STATE = {
-  itenary: INITIAL_ITENARY_STATE,
-  itenarys: [],
-  mode: "create",
-};
-
-function reducer(state, action) {
-  if (action.type === "HANDLE_INPUT_CHANGE") {
-    return {
-      ...state,
-      itenary: {
-        ...state.itenary,
-        [action.payload.target.id]: action.payload.target.value,
-      },
-    };
-  } else if (action.type === "HANDLE_ADD_ITENARY") {
-    const itenarysCopy = [...state.itenarys];
-    itenarysCopy.push(state.itenary);
-    return {
-      ...state,
-      itenary: INITIAL_ITENARY_STATE,
-      itenarys: itenarysCopy,
-    };
-  } else if (action.type === "HANDLE_EDIT_CLICKED") {
-    if (action.payload) {
-      let itenarysCopy = [...state.itenarys];
-      const matchedData = itenarysCopy.find(
-        (d) => d.placeName === action.payload
-      );
-      return {
-        ...state,
-        itenary: matchedData,
-        mode: "Edit",
-      };
-    }
-  } else if (action.type === "HANDLE_UPDATE_ITENARY") {
-    const iternarysCopy = [...state.itenarys];
-    const filteredData = iternarysCopy.filter(
-      (d) => d.placeName !== state.itenary.placeName
-    );
-    filteredData.push(state.itenary);
-    return {
-      itenary: INITIAL_ITENARY_STATE,
-      itenarys: filteredData,
-      mode: "create",
-    };
-  }
-  throw Error("Unknown action.");
-}
-
 export default function Todo() {
-  const [state, dispatch] = React.useReducer(reducer, INITIAL_COMPONENT_STATE);
+  const [itenary, setItenary] = React.useState(INITIAL_ITENARY_STATE);
+  const [itenarys, setItenarys] = React.useState([]);
+  const [mode, setMode] = React.useState("create");
 
   function handleInputChange(e) {
-    dispatch({ type: "HANDLE_INPUT_CHANGE", payload: e });
+    let itenaryCopy = {
+      ...itenary,
+    };
+    itenaryCopy[e.target.id] = e.target.value;
+    setItenary(itenaryCopy);
   }
 
   function handleAddItenary(e) {
     if (e) {
-      dispatch({ type: "HANDLE_ADD_ITENARY" });
+      let itenarysCopy = [...itenarys];
+      if (itenary.placeName && itenary.placeImage) {
+        itenarysCopy.push(itenary);
+        setItenarys(itenarysCopy);
+        setItenary(INITIAL_ITENARY_STATE);
+      }
     }
   }
 
   function handleEditItenary(place = "") {
-    dispatch({ type: "HANDLE_EDIT_CLICKED", payload: place });
+    if (place) {
+      setMode("Edit");
+      let itenarysCopy = [...itenarys];
+      const matchedData = itenarysCopy.find((d) => d.placeName === place);
+      setItenary(matchedData);
+    }
   }
 
-  function handleUpdateItenary(e) {
-    if (e) {
-      dispatch({ type: "HANDLE_UPDATE_ITENARY" });
-    }
+  function handleUpdateItenary() {
+    const iternarysCopy = [...itenarys];
+    const filteredData = iternarysCopy.filter(
+      (d) => d.placeName !== itenary.placeName
+    );
+    filteredData.push(itenary);
+    setItenarys(filteredData);
+    setMode("create");
+    setItenary(INITIAL_ITENARY_STATE);
   }
 
   return (
@@ -93,9 +65,9 @@ export default function Todo() {
               class="form-control"
               id="placeName"
               placeholder=""
-              value={state.itenary["placeName"]}
+              value={itenary["placeName"]}
               onChange={handleInputChange}
-              disabled={state.mode === "Edit"}
+              disabled={mode === "Edit"}
             />
           </div>
           <div class="mb-3">
@@ -107,7 +79,7 @@ export default function Todo() {
               class="form-control"
               id="placeImage"
               placeholder=""
-              value={state.itenary["placeImage"]}
+              value={itenary["placeImage"]}
               onChange={handleInputChange}
             />
           </div>
@@ -116,16 +88,16 @@ export default function Todo() {
               class="btn btn-primary"
               type="button"
               onClick={
-                state.mode === "create" ? handleAddItenary : handleUpdateItenary
+                mode === "create" ? handleAddItenary : handleUpdateItenary
               }
             >
-              {state.mode === "create" ? "Add Itenary" : "Update Itenary"}
+              {mode === "create" ? "Add Itenary" : "Update Itenary"}
             </button>
           </div>
         </div>
         <div className="col-9">
           <div className="row">
-            {state.itenarys.map((i, index) => (
+            {itenarys.map((i, index) => (
               <div className="col-3" key={`Itenary-${index}`}>
                 <div className="card d-flex flex-row">
                   <img

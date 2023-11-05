@@ -1,21 +1,22 @@
 import React from "react";
-import ButtonComponent from "./Components/Buttons/Button";
 import "./App.css";
-import TextField from "./Components/TextField/TextField";
 import { Routes, Route, Link } from "react-router-dom";
-import home from "./pages/home";
-import contact from "./pages/contact";
+import RefPlayground from "./pages/RefPlayground";
+import RefForm from "./pages/RefForm";
+import Todo from "./pages/Todo";
 
 function App() {
   return (
     <div className="App">
       <div>
-        <Link to={"/home"}>Home</Link>
-        <Link to={"/contact"}>Contact</Link>
+        <Link to={"/ref"}>Use Ref Playground</Link>
+        <Link to={"/refform"}>Use Ref Form</Link>
+        <Link to={"/todo"}>Todo</Link>
       </div>
       <Routes>
-        <Route path="/home" Component={home} />
-        <Route path="/contact" Component={contact} />
+        <Route path="/ref" Component={RefPlayground} />
+        <Route path="/refform" Component={RefForm} />
+        <Route path="/todo" Component={Todo} />
       </Routes>
     </div>
   );

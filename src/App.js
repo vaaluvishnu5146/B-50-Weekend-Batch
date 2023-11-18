@@ -1,21 +1,19 @@
 import React from "react";
-import ButtonComponent from "./Components/Buttons/Button";
-import "./App.css";
-import TextField from "./Components/TextField/TextField";
 import { Routes, Route, Link } from "react-router-dom";
-import home from "./pages/home";
-import contact from "./pages/contact";
+import "./App.css";
+import Home from "./Pages/Home";
+import Products from "./Pages/Products";
+import ProductDescription from "./Pages/ProductDescription";
+import Cart from "./Pages/Cart";
 
 function App() {
   return (
     <div className="App">
-      <div>
-        <Link to={"/home"}>Home</Link>
-        <Link to={"/contact"}>Contact</Link>
-      </div>
       <Routes>
-        <Route path="/home" Component={home} />
-        <Route path="/contact" Component={contact} />
+        <Route path="/" Component={Home} />
+        <Route path="/products" Component={Products} />
+        <Route path="/product" Component={ProductDescription} />
+        <Route path="/cart" Component={Cart} />
       </Routes>
     </div>
   );

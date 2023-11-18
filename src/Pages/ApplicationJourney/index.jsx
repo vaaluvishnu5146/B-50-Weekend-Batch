@@ -1,5 +1,11 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
+import DashboardLayout from "../../Layouts/Layout";
 
 export default function index() {
-  return <div>Dashboard</div>;
+  return (
+    <DashboardLayout>
+      <Outlet />
+    </DashboardLayout>
+  );
 }

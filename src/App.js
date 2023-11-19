@@ -7,18 +7,7 @@ import home from "./pages/home";
 import contact from "./pages/contact";
 
 function App() {
-  return (
-    <div className="App">
-      <div>
-        <Link to={"/home"}>Home</Link>
-        <Link to={"/contact"}>Contact</Link>
-      </div>
-      <Routes>
-        <Route path="/home" Component={home} />
-        <Route path="/contact" Component={contact} />
-      </Routes>
-    </div>
-  );
+  return <div className="App">Application</div>;
 }
 
 export default App;

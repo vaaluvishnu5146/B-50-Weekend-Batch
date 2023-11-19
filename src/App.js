@@ -14,6 +14,11 @@ import { useAuthentication } from "./Contexts/Authentication.context";
 
 function App() {
   const { loggedIn } = useAuthentication();
+  /**
+   *
+   * @param {boolean} flag
+   * @returns
+   */
   function renderRoutes(flag = false) {
     if (flag) {
       return (

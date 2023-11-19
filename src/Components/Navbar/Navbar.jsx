@@ -1,7 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuthentication } from "../../Contexts/Authentication.context";
 
 export default function Navbar() {
+  const { loggedIn, setLoggedIn } = useAuthentication();
+  const navigate = useNavigate();
   return (
     <nav className="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
       <div className="container-fluid">
@@ -84,6 +87,20 @@ export default function Navbar() {
             </li>
           </ul>
         </div>
+        {!loggedIn && (
+          <React.Fragment>
+            <button
+              className="btn"
+              onClick={() => {
+                setLoggedIn(true);
+                navigate("/cart");
+              }}
+            >
+              Login
+            </button>
+            <button className="btn">Signup</button>
+          </React.Fragment>
+        )}
         <Link to="/cart">Cart</Link>
       </div>
     </nav>

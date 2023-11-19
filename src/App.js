@@ -1,12 +1,12 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import Home from "./Pages/Home";
-import Products from "./Pages/Products/Products";
-import ProductDescription from "./Pages/ProductDescription";
-import Cart from "./Pages/Cart";
-import Groceries from "./Pages/Groceries";
 import Navbar from "./Components/Navbar/Navbar";
+import Home from "./pages/Home";
+import Products from "./pages/Products/Products";
+import ProductDescription from "./pages/ProductDescription";
+import Groceries from "./pages/Groceries";
+import Cart from "./pages/Cart";
 
 function App() {
   return (

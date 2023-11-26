@@ -42,3 +42,23 @@
   height: 50px;
   background-color: aquamarine;
 }
+
+.listing-container {
+  border-radius: 10px;
+}
+
+.task-item {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  background-color: #d9f5fd;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+
+  > .suffix {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+}

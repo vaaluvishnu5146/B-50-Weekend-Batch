@@ -6,12 +6,12 @@ export const TaskReducer = createSlice({
     tasks: [],
   },
   reducers: {
-    addTodo: (state, action) => {
+    addTasks: (state, action) => {
       state.tasks.push(action.payload);
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addTodo } = TaskReducer.actions;
+export const { addTasks } = TaskReducer.actions;
 export default TaskReducer.reducer;

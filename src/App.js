@@ -1,32 +1,42 @@
-import React, { useRef } from "react";
+import React from "react";
 import "./App.css";
-import { useDispatch, useSelector } from "react-redux";
-import { addTodo } from "./Redux/Reducers/TaskReducers.slice";
+import { Routes, Route } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { AuthenticatedRoutes, AutheticationRoutes } from "./Routes";
+import app from "./Pages/app";
 
 function App() {
-  const dispatcher = useDispatch();
-  const { tasks = [] } = useSelector((state) => state.tasksReducer);
-  console.log(tasks);
-  const inputRef = useRef(null);
+  const { isLoggedIn } = useSelector((state) => state.authReducer);
 
-  function handleSaveTask(e) {
-    dispatcher(addTodo(inputRef.current.value));
-    inputRef.current.value = "";
+  function renderRoutes(loggedIn = false) {
+    if (!loggedIn) {
+      return (
+        <React.Fragment>
+          {AutheticationRoutes.map((route, index) => (
+            <Route key={index} path={route.path} Component={route.component} />
+          ))}
+        </React.Fragment>
+      );
+    } else {
+      return (
+        <React.Fragment>
+          <Route Component={app}>
+            {AuthenticatedRoutes.children.map((route, index) => (
+              <Route
+                key={index}
+                path={route.path}
+                Component={route.component}
+              />
+            ))}
+          </Route>
+        </React.Fragment>
+      );
+    }
   }
 
   return (
     <div className="App">
-      <div className="container">
-        <input placeholder="Enter your task" ref={inputRef} />
-        <button onClick={handleSaveTask}>Save</button>
-      </div>
-      <div>
-        <ul>
-          {tasks.map((d, i) => (
-            <li ket={i}>{d}</li>
-          ))}
-        </ul>
-      </div>
+      <Routes>{renderRoutes(isLoggedIn)}</Routes>
     </div>
   );
 }

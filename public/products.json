@@ -1,0 +1,58 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "category": "chicken",
+      "name": "Chicken Wings",
+      "description": "Chicken wings is an spicy, hot food served with tomato ketchup",
+      "price": 100,
+      "quantity": "3pcs",
+      "image": "https://media.istockphoto.com/id/532607409/photo/chicken-wings.jpg?s=612x612&w=0&k=20&c=JKyzVvVvPIkGoAaN-dBHyrsyAVtB9Q1Mimv2SPv88Yk="
+    },
+    {
+      "id": 2,
+      "name": "Chicken Drumsticks",
+      "category": "chicken",
+      "description": "Chicken Drumsticks is airfried with care, and served with sprinkled corriander leaves",
+      "price": 120,
+      "quantity": "3pcs",
+      "image": "https://www.thespruceeats.com/thmb/Ce9JRCp8CRy0TvjpOMG1_zzhrWE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/terris-crispy-fried-chicken-legs-3056879-hero-01-db3cd6bfead040e6ad07528a162db843.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Crispy Veg Burger",
+      "category": "burger",
+      "description": "Our best-selling burger with crispy veg patty, fresh onion and our signature sauce.",
+      "price": 150,
+      "quantity": "1pcs",
+      "image": "https://d1rgpf387mknul.cloudfront.net/products/PLP/web/2x_web_20220613173148817999_482x264jpg"
+    },
+    {
+      "id": 4,
+      "name": "Crispy Veg Double Patty",
+      "category": "burger",
+      "description": "Our best-selling burger with crispy veg patty, fresh onion and our signature sauce.",
+      "price": 180,
+      "quantity": "1pcs",
+      "image": "https://d1rgpf387mknul.cloudfront.net/products/PLP/web/2x_web_20220314070554598878_482x264jpg"
+    },
+    {
+      "id": 5,
+      "name": "Fries King",
+      "category": "sides",
+      "description": "Our best-selling burger with crispy veg patty, fresh onion and our signature sauce.",
+      "price": 180,
+      "quantity": "1pack",
+      "image": "https://d1rgpf387mknul.cloudfront.net/products/PLP/web/2x_web_20230314074254850807_482x264jpg"
+    },
+    {
+      "id": 6,
+      "name": "Hashbrown",
+      "category": "sides",
+      "description": "What every potato wants to be.",
+      "price": 49,
+      "quantity": "1pack",
+      "image": "https://d1rgpf387mknul.cloudfront.net/products/PLP/web/2x_web_20211214071325238343_482x264jpg"
+    }
+  ]
+}

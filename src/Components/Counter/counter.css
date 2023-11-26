@@ -1,0 +1,12 @@
+.counter-cta-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 120px;
+  > button {
+    width: 30px;
+    height: 30px;
+    background: #f46700;
+    color: #ffffff;
+  }
+}

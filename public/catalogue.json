@@ -1,0 +1,18 @@
+{
+  "data": {
+    "categories": [
+      {
+        "name": "All"
+      },
+      {
+        "name": "Burger"
+      },
+      {
+        "name": "Chicken"
+      },
+      {
+        "name": "Sides"
+      }
+    ]
+  }
+}

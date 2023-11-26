@@ -1,0 +1,22 @@
+.app-container {
+  display: flex;
+  height: 100vh;
+
+  > .sidebar {
+    width: 80px;
+    height: 100%;
+  }
+  > .listing-container {
+    width: 75%;
+    padding: 20px;
+    height: 100%;
+    overflow-y: scroll;
+  }
+  > .cart-calculations {
+    width: calc(25% - 80px);
+    height: 100%;
+    background-color: #ffffff;
+    text-align: start;
+    padding: 20px 20px;
+  }
+}
